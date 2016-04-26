@@ -1,0 +1,42 @@
+<div class="company_background">
+
+  <h2 class="title is-2 sync_label"><%= @branch.name%> </h2>
+  <br>
+  <section class="row">
+    <div class="statistics2 font_2">
+      <div class="col-md-6">
+        <ul>
+          <li> <strong>Name:</strong> <span class="js-branch-name" > <%= "#{@branch.name}" %></span></li>
+          <li> <strong>Address:</strong> <span class="js-address" >
+          <%= "#{@branch.address}" %> </span></li>
+          <li> <strong>Phone:</strong> <%= "#{@branch.phone}" %></li>
+          <li> <strong>Schedule:</strong> <%= "#{@branch.schedule}" %></li>
+          <li> <strong>City:</strong> <%= "#{@branch.city}" %></li>
+          <li> <strong>State:</strong> <%= "#{@branch.state}" %></li>
+          <li> <strong>Country:</strong> <%= "#{@branch.country}" %></li>
+          <li> <strong>Url:</strong><a href="http://<%= @branch.url %>" target="_blank" > <%= "#{@branch.url}" %></a></li>
+          <li><span class="js-latitude" data-lat='<%= "#{@branch.latitude}" %>'> </span></li>
+          <li><span class="js-longitude" data-lon='<%= "#{@branch.longitude}" %>'></span> </li>
+          <li><span class="js-branchRewards" data-reward='<%= "#{@branch.rewards}" %>'></span> </li>
+          <br>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <div id="branchMap"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="col-md-12">
+      <a href="<%= company_branch_employees_path(current_company.id,@branch.id) %>" class="btn" >Employees</a>
+      <a href="<%= company_branch_rewards_path(current_company.id,@branch.id) %>" class="btn" >Rewards</a>
+    </div>
+  </section>
+
+  <br>
+  <a href="<%= edit_company_branch_path(current_company.id,params[:id]) %>">Edit branch</a>
+  <br>
+  <a href="<%= company_path(current_company.id) %>">Back to Company</a>
+
+</div>

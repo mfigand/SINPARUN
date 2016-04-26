@@ -1,0 +1,31 @@
+== README
+
+It is an application that converts the kilometers exercising
+(running or walking) to rewards at participating establishments.
+
+The rewards can be anything from a coffee, a t-shirt or a movie tickets,
+bike service or discounts in various establishments.
+
+Among older accumulate kilometers will be the reward that you can redeem.
+
+Considerations:
+
+* They are actually three separate apps, which share the same database.
+
+  The app for users, for companies and for employees.
+
+  Each one has a controller, a model and even its own layout.
+
+* I used postgres as DB, so you may need to run the server before using whit
+
+  pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+
+* As technologies i used Ruby on Rails, JavaScript, JQuery, Ajax calls, HTML5,
+ CSS, Bootstrap and Materialize.
+
+* For authentications i used Devise.
+
+* I used Unit Testing, helping me with 'rspec-rails', 'factory_girl_rails',
+'faker' and 'guard-rspec'
+
+* Some interesting gems i used are 'paperclip', 'filterrific' and 'kaminari'

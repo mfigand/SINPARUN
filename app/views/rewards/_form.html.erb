@@ -1,0 +1,38 @@
+
+<% if @reward.errors.any? %>
+  <ul class="notification">
+    <% @reward.errors.full_messages.each do |error| %>
+     <li><%= error %> </li>
+    <% end %>
+  </ul>
+<% end%>
+
+
+<%= form_for [current_company,@branch,@reward] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, size: 10, required:'' %>
+  <br>
+  <%= f.label :kms_cost %>
+  <%= f.number_field :kms_cost, size: 10, within: 1...1000, required:''%>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_field :description, size: 10, required:'' %>
+  <br>
+  <%= f.label :valid_from %>
+  <%= f.date_field :valid_from, size: 10, class: "valid_from", value: Time.now.to_date, min: Time.now.to_date, required:'' %>
+  <br>
+  <%= f.label :valid_through %>
+  <%= f.date_field :valid_through, size: 10, class: "valid_through", value: Time.now.to_date+30.days, min: Time.now.to_date, required:'' %>
+  <br>
+  <%= f.label :available_units %>
+  <%= f.number_field :available_units, size: 10, within: 1...100, required:'' %>
+  <br>
+  <%= f.label :image %>
+  <%= f.file_field :image, size: 10, required:'' %>
+  <br>
+
+  <%= f.submit 'Save' %>
+
+<% end %>
+<br>
+<a href="<%= company_branch_path(current_company.id, @company.id) %>">Back to Branch</a>

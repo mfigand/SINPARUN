@@ -1,0 +1,17 @@
+<h2 class="title_companies is-2 sync_label">Branches location</h2>
+<br>
+<div class="row">
+ <div class="map_container col-md-12">
+   <div id="branches_map"></div>
+ </div>
+</div>
+<br>
+<ul>
+  <% @branches.each_with_index do |branch, index| %>
+    <li><span class="js-branch-lat" data-branch-lat='<%= "#{branch.latitude}" %>'></span></li>
+    <li><span class="js-branch-long" data-branch-long='<%= "#{branch.longitude}" %>'></span></li>
+    <br>
+  <% end %>
+</ul>
+
+<a href="<%= company_path(current_company.id)%>">Back to Company profile</a>

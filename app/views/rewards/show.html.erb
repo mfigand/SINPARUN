@@ -1,0 +1,28 @@
+<h2 class="title is-2 sync_label"><%= @reward.name%></h2>
+<br>
+
+<div class="row statistics2 font_2">
+  <section class="col-md-6">
+    <ul>
+      <li> <strong>Name:</strong> <%= "#{@reward.name}" %></li>
+      <li> <strong>Kms cost:</strong> <%= "#{@reward.kms_cost}" %></li>
+      <li> <strong>Description:</strong> <%= "#{@reward.description}" %></li>
+      <li> <strong>Valid from:</strong> <%= "#{@reward.valid_from.to_date}" %></li>
+      <li> <strong>Valid through:</strong> <%= "#{@reward.valid_through.to_date}" %></li>
+      <li> <strong>Available units:</strong> <%= "#{@reward.available_units}" %></li>
+      <li> <strong>Reserved units:</strong> <%= "#{@reward.reserved_units}" %></li>
+      <li> <strong>Charged units:</strong> <%= "#{@reward.charged_units}" %></li>
+      <br>
+    </ul>
+  </section>
+
+  <section class="col-md-6">
+    <div class="img_show_reward" >
+      <%= image_tag @reward.image.url(:medium)  %>
+    </div>
+  </section>
+</div>
+<br>
+<a href="<%= company_rewards_path(current_company.id) %>">My Rewards</a>
+<br>
+<a href="<%= company_path(current_company.id)%>">Back to Company profile</a>

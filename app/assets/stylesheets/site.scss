@@ -1,0 +1,31 @@
+// Place all the styles related to the Site controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.parallax-container {
+    height: 300px !important;
+  }
+
+.landingpage_title{
+  font-family: 'Lobster', cursive;
+  color: #26A69A;
+  height: 40px;
+}
+
+.landingpage_title_comun{
+  font-family: 'Lobster', cursive;
+  color: #B22222;
+  height: 40px;
+}
+
+.user_header{
+  color: #A8A5A5;
+}
+
+.user_header_comun{
+  color: #26A69A;
+}
+
+.brand-logo{
+  padding-left: 20px !important;
+}

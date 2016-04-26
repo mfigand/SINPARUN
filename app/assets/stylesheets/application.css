@@ -1,0 +1,93 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import 'bootstrap-sprockets';
+ @import 'bootstrap';
+
+ .nav-wrapper {
+   color: #333 !important;
+   width: 100%;
+   background-color: #DDD;
+}
+
+.brand-logo{
+  font-family: 'Lobster', cursive;
+  color: #515151 !important;
+}
+
+.s{
+  color: #FF6347 !important;
+  font-family: 'Lobster', cursive;
+}
+
+.r{
+  color: #FF6347 !important;
+  font-family: 'Lobster', cursive;
+}
+
+.sign_link{
+  color: black!important;
+  font-weight: bold;
+}
+.sign_out{
+  color: black;
+  font-weight: bold;
+}
+
+.loggin_name{
+  line-height: 50px !important;
+}
+
+.follow{
+  max-height: 30px !important;
+  width: auto;
+}
+
+.field{
+color: #26A69A;
+}
+
+.session_title{
+  color: #26A69A;
+}
+
+.notification{
+  color: rgb(238, 110, 115);
+  font-size: 20px;
+}
+
+.comun_body{
+  background-image: url('/images/back_running6.jpg');
+  background-repeat: space;
+  background-size: cover;
+}
+
+.users_body{
+  background-image: url('/images/back_running6.jpg');
+  background-repeat: space;
+  background-size: cover;
+}
+
+.companies_body{
+  background-image: url('/images/back_running10.jpg');
+  background-repeat: space;
+  background-size: cover;
+}
+
+.employees_body{
+  background-image: url('/images/back_running9.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}

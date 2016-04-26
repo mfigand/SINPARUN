@@ -1,0 +1,40 @@
+<div class="company_background">
+
+  <h2 class="title is-2 sync_label"><%= @employee.name%> info </h2>
+  <br>
+
+  <div class="row statistics2 font_2">
+    <section class="col-md-6">
+      <ul>
+        <li> <strong>Name: </strong> <%= "#{@employee.name}" %></li>
+        <li> <strong>Email: </strong> <%= "#{@employee.email}" %></li>
+        <li> <strong>Phone: </strong> <%= "#{@employee.phone}" %></li>
+        <br>
+      </ul>
+    </section>
+
+    <section class="col-md-6">
+      <button type="button" class="waves-effect waves-light btn" data-toggle="modal" data-target="#couponsModal">
+        Validated coupons
+      </button>
+    </section>
+  </div>
+  <br>
+  <a href="<%= company_branch_employees_path(current_company.id, @branch.id) %>">Back to Employees</a>
+
+  <!-- Modal -->
+  <div class="modal fade" id="couponsModal" tabindex="-1" role="dialog" aria-labelledby="couponsModalLabel">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title" id="couponsModalLabel">Validated coupons by <%= "#{@employee.name}" %> </h4>
+    </div>
+    <div class="modal-body">
+      <%= render "validated_coupons" %>
+    </div>
+    <div class="modal-footer">
+      <button href="/" type="button" class="waves-effect waves-light btn" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+  <!-- End Modal -->
+  
+</div>

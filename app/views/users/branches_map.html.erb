@@ -1,0 +1,25 @@
+<h2 class="title is-2 sync_label">This rewards near your location</h2>
+<br>
+<div class="">
+ <div class="">
+   <div id="rewards_map2"></div>
+ </div>
+</div>
+<br>
+<span class="js-user-name" data-user-name='<%= "#{current_user.name}" %>'></span>
+<ul>
+  <% @branches.each_with_index do |branch, index| %>
+    <li><span class="js-rewards-name" data-rewards-name='<%= "#{branch.name}" %>'></span></li>
+    <li><span class="js-rewards-lat" data-rewards-lat='<%= "#{branch.latitude}" %>'></span></li>
+    <li><span class="js-rewards-long" data-rewards-long='<%= "#{branch.longitude}" %>'></span></li>
+    <ul>
+      <% branch.company.rewards.each_with_index do |reward, index| %>
+        <li><span class="js-branch-reward" data-branch-rewards='<%= "#{reward.name}" %>'></span></li>
+        <br>
+      <% end %>
+    </ul>
+    <br>
+  <% end %>
+</ul>
+
+<a href="<%= users_rewards_path %>">Back to Rewards</a>

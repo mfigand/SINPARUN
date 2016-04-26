@@ -1,0 +1,20 @@
+<table class="highlight centered">
+    <thead>
+      <tr>
+          <th data-field="id">Reward</th>
+          <th data-field="name">Cupon number</th>
+          <th data-field="price">Customer</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @employee.coupons.each_with_index do |coupon, index| %>
+      <tr>
+        <td><a href="<%= company_branch_reward_path(current_company,@branch,coupon.reward) %>">
+          <%= "#{coupon.reward.name}" %></a></td>
+        <td><%= "#{coupon.code}" %></td>
+        <td><%= "#{coupon.user.name}" %> - <%= "#{coupon.user.email}" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

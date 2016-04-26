@@ -1,0 +1,135 @@
+<section class="user_background">
+
+  <div class="user_info counter_label row z-depth-2">
+    <div class="valign-wrapper">
+      <div class="col-sm-3 valign">
+          <div class="profile_img materialboxed" width="650">
+          <%= image_tag current_user.avatar.url(:medium) %>
+          </div>
+          <h6 class="message"></h6>
+      </div>
+      <div class="col-sm-3 valign">
+        <h5 class="kms_counter"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].sinparun_kms %></h5>
+        <h5>Kms Sinpa</h5>
+      </div>
+      <div class="col-sm-3 valign">
+        <h5 class="total_kms_counter"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].total_kms %></h5>
+        <h5>Total kms</h5>
+      </div>
+      <div class="col-sm-3 valign">
+        <h5 class="level_counter"><%= current_user.kms.length == 0 ? 0 : current_user.kms[0].level %></h5>
+        <h5>Level</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="row section3 hoverable">
+    <h5 class="sync_label">Syncronize your kms</h5>
+    <br>
+    <div class="col-sm-2">
+      <button class="js-btn-nike sync_button waves-effect waves-light" type="button" name="button">
+        <img src="/images/nike_logo.jpg" alt="" />
+      </button>
+    </div>
+    <div class="col-sm-2">
+      <button class="js-btn-runtastic sync_button waves-effect waves-light" type="button" name="button">
+        <img src="/images/runtastic.png" alt="" />
+      </button>
+    </div>
+    <div class="col-sm-2">
+      <button class="sync_button tooltipped waves-effect waves-light" data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
+        <img src="/images/endomondo.jpg" alt="" />
+      </button>
+    </div>
+    <div class="col-sm-2">
+      <button class="sync_button tooltipped waves-effect waves-light" data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
+        <img src="/images/runkeeper_icon.png" alt="" />
+      </button>
+    </div>
+    <div class="col-sm-2">
+      <button class="sync_button tooltipped waves-effect waves-light" data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
+        <img src="/images/sportstracker.png" alt="" />
+      </button>
+    </div>
+    <div class="col-sm-2">
+      <button class="sync_button tooltipped waves-effect waves-light" data-position="top" data-delay="50" data-tooltip="Coming soon" type="button" name="button">
+        <img src="/images/tomtom.png" alt="" />
+      </button>
+    </div>
+    <br>
+
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 section2 hoverable">
+      <div class="reserved_coupons">
+          <h5 class="sync_label ">Reserved coupons</h5>
+          <a class="" href="<%= user_coupons_path(current_user) %>" class="waves-effect waves-light">view all</a>
+          <div class="coupon_list ">
+            <br>
+            <% @coupons.each_with_index do |coupon, index| %>
+            <% if coupon.redeemed == "reserved" %>
+              <div class="chip">
+                <img class="valign" src="/images/<%= coupon.reward.image_file_name %>" alt="Contact Person">
+                <%= coupon.reward.name %>
+                - <a href="<%= user_coupon_path(current_user,coupon) %>"><%= coupon.code %></a>
+              </div>
+              <% end %>
+              <br>
+            <% end %>
+          </div>
+      </div>
+    </div>
+
+      <div class="col-sm-5 col-sm-offset-1 section1 hoverable">
+        <h5 class="sync_label">Latest rewards</h5>
+        <a href="<%= users_rewards_path(current_user) %>" class="waves-effect waves-light">View all</a>
+        - <a href="<%= users_rewards_map_path(current_user) %>" class="btn-rewards_map">view in map</a>
+        <br>
+        <div class="">
+         <div class="">
+           <% @allRewards.each_with_index do |reward, index| %>
+           <% if reward.valid_from < Time.now && index < 4 %>
+             <!-- card -->
+              <div class="card ">
+               <div class="card-image waves-effect waves-block waves-light">
+                 <div class="img_show_reward activator" >
+                   <%= image_tag reward.image.url(:medium) %>
+                 </div>
+
+               </div>
+               <div class="card-content">
+                 <span class="card-title activator grey-text text-darken-4">
+                   <b><%= "#{reward.kms_cost}" %> kms</b> - <%= "#{reward.name}" %>
+                   <i class="material-icons right glyphicon glyphicon-sunglasses"></i></span>
+                 <p><a href="<%= edit_coupon_path(reward.id) %>">Get</a></p>
+               </div>
+               <div class="card-reveal">
+                 <span class="card-title grey-text text-darken-4"><%= "#{reward.name}" %><i class="material-icons right glyphicon glyphicon glyphicon glyphicon-remove-circle"></i></span>
+                 <p>
+                   <ul>
+                     <li><strong>Description: </strong> <%= "#{reward.description}" %></li>
+                     <li><strong>Kms cost: </strong> <%= "#{reward.kms_cost}" %></li>
+                     <li><strong>Locations: </strong> <a href='/users/branches_map/<%= "#{reward.company_id}"  %>'><%= "#{reward.company.name}" %></a></li>
+                     <li><strong>Valid from: </strong> <%= "#{reward.valid_from.to_date}" %></li>
+                     <li><strong>Valid through: </strong> <%= "#{reward.valid_through.to_date}" %></li>
+                     <li><strong>Available units: </strong> <%= "#{reward.available_units}" %></li>
+                     <br>
+                     <a href="<%= edit_coupon_path(reward.id) %>">Get</a>
+                   </ul>
+                 </p>
+               </div>
+              </div>
+            <!-- /card -->
+          <% end %>
+         <% end %>
+         </div>
+        </div>
+      </div>
+
+  </div>
+
+  <br>
+    <b><a style="color: black" href="<%=edit_user_path(current_user.id)%>">Edit profile</a></b>
+
+</section>

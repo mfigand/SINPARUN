@@ -1,0 +1,146 @@
+// .overlay{
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+//     background-color: #fff;
+//     opacity: 0.7;
+//     z-index: -1;
+//     left: 0;
+//     top: 0;
+//     color: blue !important;
+// }
+
+.btn{
+  border-radius: 75px !important;
+}
+.user_info{
+  background-image: url('/images/pista_azul.jpg');
+  background-size: cover;
+  border-radius: 25px;
+}
+
+.background_user{
+  background-image: url('/images/background5.jpg');
+  position: relative;
+  background-size: cover;
+}
+.salute{
+  min-height: 100px;
+  color: #DEDDDD;
+}
+
+.profile_img img{
+   border-radius: 75px;
+   -moz-border-radius: 75px;
+   -webkit-border-radius: 75px;
+   height: 125px;
+   width: 125px;
+   overflow: hidden;
+   text-align: center;
+   img { width: 100% }
+}
+
+.sync_button:hover{
+  background-color: #26A69A;
+}
+
+.counter_label{
+  font-family: 'Russo One', sans-serif;
+  color: #DDDDDD !important;
+}
+
+.section1{
+  min-height: 500px;
+  min-width: 100px;
+  border-radius: 25px;
+  background-color: #F8F8F8;
+  float: left;
+}
+
+.section2{
+  min-width: 300px;
+  min-height: 200px !important;
+  background-color: #F8F8F8 !important;
+  border-radius: 25px;
+}
+
+.section3{
+  background-color: #F8F8F8 !important;
+  min-height: 150px;
+  border-radius: 25px;
+}
+
+.chip{
+  height: 100% !important;
+  width: auto !important;
+  font-size: 20px !important;
+}
+.coupon_list li{
+  text-align: center !important;
+}
+
+.sync_label{
+  font-family: 'Russo One', sans-serif;
+  color: #515151;
+}
+
+.js-btn-runkeeper{
+  width: 50px;
+  height: 50px;
+}
+
+.js-btn-runkeeper img{
+  width: 50px;
+  height: 50px;
+  margin-left: -5px;
+}
+
+.nikerunning{
+  width: 50px;
+  height: 50px;
+}
+.nikerunning img{
+  width: 50px;
+  height: 50px;
+  margin-left: -5px;
+}
+
+.endomondo{
+  width: 50px;
+  height: 50px;
+}
+.endomondo img{
+  width: 50px;
+  height: 50px;
+  margin-left: -5px;
+}
+
+.sportstracker{
+  width: 50px;
+  height: 50px;
+}
+.sportstracker img{
+  width: 50px;
+  height: 50px;
+  margin-left: -5px;
+}
+
+.runtastic{
+  width: 50px;
+  height: 50px;
+}
+.runtastic img{
+  width: 50px;
+  height: 50px;
+  margin-left: -5px;
+}
+
+.tomtom{
+  width: 50px;
+  height: 50px;
+}
+.tomtom img{
+  width: 50px;
+  height: 50px;
+  margin-left: -5px;
+}

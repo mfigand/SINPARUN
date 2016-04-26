@@ -1,0 +1,36 @@
+
+<% if @company.errors.any? %>
+  <ul class="notification is-danger">
+    <button class="delete"></button>
+    <% @company.errors.full_messages.each do |error| %>
+     <li><%= error %> </li>
+    <% end %>
+  </ul>
+<% end%>
+
+
+<%= form_for [@company] do |f| %>
+  <div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name, size: 10, required:'' %>
+  </div>
+  <br>
+  <div class="field">
+  <%= f.label :email %>
+  <%= f.text_field :email, size: 10, required:'' %>
+  </div>
+  <br>
+  <div class="field">
+  <%= f.label :password %>
+  <%= f.password_field :password, size: 10, required:'' %>
+  </div>
+  <br>
+  <div class="field">
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, size: 10, required:'' %>
+  </div>
+  <br>
+
+  <%= f.submit 'Save' %>
+
+<% end %>

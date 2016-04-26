@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Finalproyect</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-track' => true %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <%= javascript_include_tag 'application', 'data-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+</head>
+<body class="">
+  <div class="nav_bar navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo"><span class="s">S</span>inpa<span class="r">R</span>un</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons sign_link">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <% if employee_signed_in?%>
+          <li><%= current_employee.name %></li>
+          <li><%= link_to 'Sign out', destroy_employee_session_path, method: 'DELETE', class: 'sign_out' %></li>
+          <% end %>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <% if employee_signed_in?%>
+          <li><%= current_employee.name %></li>
+          <li><%= link_to 'Sign out', destroy_employee_session_path, method: 'DELETE', class: 'sign_out' %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+    <div class="container-fluid" style="min-height: 300px">
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="yield col-xs-10" style="text-align: center"><%= yield %></div>
+        <div class="col-xs-1"></div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-footer">
+        <div class="row">
+          <div class="col-xs-6 sign_link" style="text-align: left">Copyright 2016 | By SinpaRun</div>
+          <div class="col-xs-6" style="text-align: right">
+            <a href="https://www.facebook.com/sinparun/"><img class="circle follow" src="/images/facebook.png"></a>
+            <a href="https://twitter.com/@SinpaRun"><img class="circle follow" src="/images/twitter.png"></a>
+            <a href="https://www.instagram.com/"><img class="circle follow" src="/images/instagram.png"></a>
+            <a href="https://es.pinterest.com/"><img class="circle follow" src="/images/pinterest.png"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>

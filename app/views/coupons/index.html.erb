@@ -1,0 +1,79 @@
+<div class="minimum_heigth">
+
+  <section class="row">
+    <div class="col-sm-12">
+      <h5 class="sync_label" >Reserved coupons</h5>
+
+       <% @coupons.each_with_index do |coupon, index| %>
+       <% if coupon.redeemed == "reserved" %>
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">grade</i>
+            <a href="<%= user_coupon_path(current_user,coupon) %>"><%= "#{coupon.reward.name}" %></a>
+          </div>
+          <div class="collapsible-body">
+            <table class="highlight centered">
+                <thead>
+                  <tr>
+                    <th>Kms cost</th>
+                    <th>Code</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td><%= "#{coupon.reward.kms_cost}" %></td>
+                    <td><%= "#{coupon.code}" %></td>
+                  </tr>
+
+                </tbody>
+              </table>
+          </div>
+        </li>
+      </ul>
+    <% end %>
+    <% end %>
+    </div>
+
+    <div class="col-sm-12">
+      <h5 class="sync_label">Charged coupons</h5>
+
+      <% @coupons.each_with_index do |coupon, index| %>
+        <% if coupon.redeemed == "charged" %>
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">grade</i>
+            <a href="<%= user_coupon_path(current_user,coupon) %>"><%= "#{coupon.reward.name}" %></a>
+          </div>
+          <div class="collapsible-body">
+            <table class="highlight centered">
+                <thead>
+                  <tr>
+                    <th>Kms cost</th>
+                    <th>Code</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td><%= "#{coupon.reward.kms_cost}" %></td>
+                    <td><%= "#{coupon.code}" %></td>
+                  </tr>
+
+                </tbody>
+              </table>
+          </div>
+        </li>
+      </ul>
+    <% end %>
+    <% end %>
+    </div>
+
+  </section>
+
+  </div>
+
+  <br>
+  <a href="<%= users_rewards_path %>">Get rewards</a>
+  <br>
+  <a href="<%= user_path(current_user) %>">Back to Profile</a>

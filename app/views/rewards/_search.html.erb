@@ -1,0 +1,39 @@
+<%= form_for_filterrific @filterrific do |f| %>
+  <div>
+    Search
+    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+    <%= f.text_field(
+      :search_query,
+      class: 'filterrific-periodically-observed'
+    ) %>
+  </div>
+  <div>
+    Country
+    <%= f.select(
+      :with_country_id,
+      @filterrific.select_options[:with_country_id],
+      { include_blank: '- Any -' }
+    ) %>
+  </div>
+  <div>
+    Registered after
+    <%= f.text_field(:with_created_at_gte, class: 'js-datepicker') %>
+  </div>
+  <div>
+    Sorted by
+    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+  </div>
+  <div>
+    <%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
+  </div>
+  <%# add an automated spinner to your form when the list is refreshed %>
+  <%= render_filterrific_spinner %>
+<% end %>
+
+<%= render(
+  partial: 'students/list',
+  locals: { students: @students }
+) %>

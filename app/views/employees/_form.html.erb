@@ -1,0 +1,29 @@
+
+<% if @employee.errors.any? %>
+  <ul class="notification">
+    <% @employee.errors.full_messages.each do |error| %>
+     <li><%= error %> </li>
+    <% end %>
+  </ul>
+<% end%>
+
+
+<%= form_for [current_company,@branch,@employee] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, size: 10, required:'' %>
+  <br>
+  <%= f.label :email %>
+  <%= f.email_field :email, size: 10, required:'' %>
+  <br>
+  <%= f.label :phone %>
+  <%= f.text_field :phone, size: 10, required:'' %>
+  <br>
+  <%= f.label :password %>
+  <%= f.password_field :password, size: 10, required:'' %>
+  <br>
+
+  <%= f.submit 'Save' %>
+
+<% end %>
+<br>
+<a href="<%= company_branch_path(current_company.id, @branch.id) %>">Back to Branch</a>

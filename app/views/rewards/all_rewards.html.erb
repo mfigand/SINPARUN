@@ -1,0 +1,76 @@
+<h2 class="title is-2 sync_label">Get your rewards</h2>
+<br>
+<div class="error">
+  <%= flash_message %>
+  <% if flash_message == "Sorry don't have enough kms !"%>
+
+  <% end %>
+</div>
+
+
+<div class="row">
+  <div class="col s12">
+    <%= form_for_filterrific @filterrific do |f| %>
+      <div>
+        <div class="input-field col s12">
+          <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+          <%= f.text_field(:search_query, class: 'filterrific-periodically-observed') %>
+          <label class="active" for="first_name2"><i class="material-icons">search</i> by name</label>
+        </div>
+        <div>
+         <%= link_to('Reset filters',reset_filterrific_url) %>
+       </div>
+         <% if @all_rewards.length != 0%>
+       <div class="col s12" style="text-align: center, ">
+         <%= render(partial: 'rewards/list', locals: { rewards: @all_rewards }) %>
+       </div>
+       <% end %>
+
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+ <div class="col s12">
+   <% @allRewards.each_with_index do |reward, index| %>
+   <% if reward.valid_from < Time.now %>
+     <!-- card -->
+      <div class="card">
+       <div class="card-image waves-effect waves-block waves-light">
+         <div class="img_show_reward activator" >
+           <%= image_tag reward.image.url(:medium) %>
+         </div>
+
+       </div>
+       <div class="card-content">
+         <span class="card-title activator grey-text text-darken-4">
+           <b><%= "#{reward.kms_cost}" %> kms</b> - <%= "#{reward.name}" %>
+           <i class="material-icons right glyphicon glyphicon-sunglasses"></i></span>
+         <p><a href="<%= edit_coupon_path(reward.id) %>">Get</a></p>
+       </div>
+       <div class="card-reveal">
+         <span class="card-title grey-text text-darken-4"><%= "#{reward.name}" %><i class="material-icons right glyphicon glyphicon glyphicon glyphicon-remove-circle"></i></span>
+         <p>
+           <ul>
+             <li><strong>Description: </strong> <%= "#{reward.description}" %></li>
+             <li><strong>Kms cost: </strong> <%= "#{reward.kms_cost}" %></li>
+             <li><strong>Locations: </strong> <a href='/users/branches_map/<%= "#{reward.company_id}"  %>'><%= "#{reward.company.name}" %></a></li>
+             <li><strong>Valid from: </strong> <%= "#{reward.valid_from.to_date}" %></li>
+             <li><strong>Valid through: </strong> <%= "#{reward.valid_through.to_date}" %></li>
+             <li><strong>Available units: </strong> <%= "#{reward.available_units}" %></li>
+             <br>
+             <a href="<%= edit_coupon_path(reward.id) %>">Get</a>
+           </ul>
+         </p>
+       </div>
+      </div>
+    <!-- /card -->
+  <% end %>
+ <% end %>
+ </div>
+</div>
+
+<br>
+
+<a href="<%= user_path(current_user)%>">Back to Profile</a>

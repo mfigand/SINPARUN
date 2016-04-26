@@ -1,0 +1,31 @@
+// Place all the styles related to the Companies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#branches_map{
+  height: 400px;
+  width: auto;
+}
+
+.company_header{
+  color: #00008B;
+}
+
+.list_btn{
+  float: right;
+}
+
+.company_background{
+  min-height: 600px;
+}
+
+.background_companies{
+  background-image: url('/images/back_running2.jpg');
+  position: relative;
+  background-size: cover;
+}
+.title_companies{
+  color: #F0F8FF !important;
+}
+.title_boxes{
+  color: #FF6347;
+}

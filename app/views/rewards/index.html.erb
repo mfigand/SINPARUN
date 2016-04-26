@@ -1,0 +1,97 @@
+<h2 class="title is-2 sync_label"><%= @company.name%>'s rewards </h2>
+<br>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <h5> Active Rewards</h5>
+    <% @rewards.each_with_index do |reward, index| %>
+      <% if reward.valid_through > Time.now %>
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header"><i class="material-icons">grade</i><%= reward.name %></div>
+        <div class="collapsible-body">
+          <table class="highlight centered">
+              <thead>
+                <tr>
+                  <th data-field="name">Description</th>
+                  <th data-field="name">Kms cost</th>
+                  <th data-field="name">Valid from</th>
+                  <th data-field="name">Valid through</th>
+                  <th data-field="name">Available units</th>
+                  <th data-field="name">Reserved units</th>
+                  <th data-field="name">Charged units</th>
+                  <th data-field="price">Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td><%= "#{reward.description}" %></td>
+                  <td><%= "#{reward.kms_cost}" %></td>
+                  <td><%= "#{reward.valid_from.to_date}" %></td>
+                  <td><%= "#{reward.valid_through.to_date}" %></td>
+                  <td><%= "#{reward.available_units}" %></td>
+                  <td><%= "#{reward.reserved_units}" %></td>
+                  <td><%= "#{reward.charged_units}" %></td>
+                  <td><a href="<%= company_reward_path(current_company.id, reward.id) %>">Show</a> / <a data-method="DELETE" href="<%= company_reward_path(current_company.id, reward.id) %>">Delete</a></td>
+                </tr>
+
+              </tbody>
+            </table>
+        </div>
+      </li>
+    </ul>
+    <% end %>
+  <% end %>
+  </div>
+
+  <div class="col-md-12">
+    <h5> Expired Rewards</h5>
+    <% @rewards.each_with_index do |reward, index| %>
+      <% if reward.valid_through < Time.now %>
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header"><i class="material-icons">grade</i><%= reward.name %></div>
+        <div class="collapsible-body">
+          <table class="highlight centered">
+              <thead>
+                <tr>
+                  <th data-field="name">Description</th>
+                  <th data-field="name">Kms cost</th>
+                  <th data-field="name">Valid from</th>
+                  <th data-field="name">Valid through</th>
+                  <th data-field="name">Available units</th>
+                  <th data-field="name">Reserved units</th>
+                  <th data-field="name">Charged units</th>
+                  <th data-field="price">Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td><%= "#{reward.description}" %></td>
+                  <td><%= "#{reward.kms_cost}" %></td>
+                  <td><%= "#{reward.valid_from.to_date}" %></td>
+                  <td><%= "#{reward.valid_through.to_date}" %></td>
+                  <td><%= "#{reward.available_units}" %></td>
+                  <td><%= "#{reward.reserved_units}" %></td>
+                  <td><%= "#{reward.charged_units}" %></td>
+                  <td><a href="<%= company_reward_path(current_company.id, reward.id) %>">Show</a> / <a data-method="DELETE" href="<%= company_reward_path(current_company.id, reward.id) %>">Delete</a></td>
+                </tr>
+
+              </tbody>
+            </table>
+        </div>
+      </li>
+    </ul>
+    <% end %>
+  <% end %>
+  </div>
+
+</div>
+
+<br>
+<a href="<%= new_company_reward_path(current_company.id) %>" class="row btn" >Add Reward</a>
+<br>
+<a href="<%= company_path(current_company.id) %>">Back to Company Profile</a>

@@ -1,0 +1,64 @@
+// Place all the styles related to the Rewards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#rewards_map {
+  height: 400px;
+  width: auto;
+   border-radius: 16px 16px;
+   border-color: #fff;
+   border-style: solid;
+   box-shadow: 2px 2px 10px #B1B1B1;
+   margin-top: 25px;
+   border-width: 7px;
+}
+
+.map_container{
+  text-align: center;
+}
+
+#rewards_map2 {
+  height: 500px;
+  width: auto;
+  display: block;
+}
+
+.last_rewards_cards{
+  width: 100% !important;
+}
+
+.img_show_reward{
+  text-align: -webkit-center !important;
+  width: auto;
+  height: 100%;
+}
+
+.img_show_reward img{
+  max-width: 250px;
+  height: 100%;
+  width: auto;
+}
+
+.card{
+  height: 300px;
+  width: 300px;
+  display: inline-block;
+  text-align: center;
+}
+
+.card-title{
+  font-size: 18px !important;
+}
+
+.card-image{
+  height: 200px;
+  width: 300px;
+}
+
+li{
+  text-align: left;
+}
+
+.close_icon{
+  float: right;
+  width: 10%;
+}

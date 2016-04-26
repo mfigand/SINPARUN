@@ -1,0 +1,20 @@
+<div id="filterrific_results">
+
+  <table>
+    <span class="table_titles">
+      <th>Company</th>
+      <th>Reward</th>
+      <th>Kms cost</th>
+    </span>
+
+    <% @all_rewards.each do |reward| %>
+      <tr>
+        <td id="table_results" ><%= reward.company.name %></td>
+        <td><%= link_to(reward.name, users_branches_map_path(reward.company.id)) %></td>
+        <td><%= reward.kms_cost %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= paginate rewards %>

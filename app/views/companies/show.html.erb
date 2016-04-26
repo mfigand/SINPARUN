@@ -1,0 +1,80 @@
+<section class="company_background">
+
+<h2 class="title_companies sync_label"><%= current_company.name %> </h2>
+
+<div class="row">
+  <div class="col-md-7">
+    <h5 class="title_companies">Rewards</h5>
+    <span><a href="<%= new_company_reward_path(current_company.id) %>" class="">Add Reward</a></span>
+    <% @rewards.each_with_index do |reward, index| %>
+    <ul class="collapsible hoverable" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header"><i class="material-icons">grade</i><%= reward.name %></div>
+        <div class="collapsible-body">
+          <table class="highlight centered">
+              <thead>
+                <tr>
+                    <th data-field="name">Description</th>
+                    <th data-field="name">Status</th>
+                    <th data-field="price">Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td class=""><%= "#{reward.description}" %></td>
+                  <% if reward.valid_through < Time.now %>
+                  <td>Expired</td>
+                  <% else %>
+                  <td>Active</td>
+                  <% end %>
+                  <td><a href="<%= company_reward_path(current_company.id, reward.id) %>">Show</a>
+                    - <a data-method="DELETE" href="<%= company_reward_path(current_company.id, reward.id) %>">Delete</a></td>
+                </tr>
+
+              </tbody>
+            </table>
+        </div>
+      </li>
+    </ul>
+  <% end %>
+  </div>
+
+  <div class="col-md-4 col-sm-offset-1">
+    <h5 class="title_companies">Branches</h5>
+    <span><a href="<%= new_company_branch_path(current_company.id) %>" class="">Add Branch</a></span>
+    - <a href="<%= branches_map_path(current_company.id) %>" class="">view map</a>
+    <% @branches.each_with_index do |branch, index| %>
+    <ul class="collapsible hoverable" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header"><i class="material-icons">location_on</i><%= branch.name %></div>
+        <div class="collapsible-body">
+          <table class="highlight centered">
+              <thead>
+                <tr>
+
+                    <th data-field="name">Address</th>
+                    <th data-field="price">Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td class="title_boxes"><%= "#{branch.address}" %></td>
+                  <td><a href="<%= company_branch_path(current_company.id, branch.id) %>">Show</a>
+                    - <a data-method="DELETE" href="<%= company_branch_path(current_company.id, branch.id) %>">Delete</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+</div>
+
+    <br>
+    <a class="btn waves-effect waves-light" href="<%= edit_company_path(current_company.id) %>">Edit Company</a>
+
+
+</section>

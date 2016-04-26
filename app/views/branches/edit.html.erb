@@ -1,0 +1,6 @@
+<h2>Edit <%= @branch.name %></h2>
+
+<%= render "form" %>
+
+<br>
+<%= link_to("Back to Branch", company_branch_path(current_company.id, @branch)) %>

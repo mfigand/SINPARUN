@@ -1,0 +1,53 @@
+<div class="company_background">
+
+  <h2 class="title is-2 sync_label"><%= @branch.name%>'s employees </h2>
+  <br>
+  <table class="highlight centered">
+      <thead>
+        <tr>
+            <th data-field="id">Name</th>
+            <th data-field="name">Email</th>
+            <th data-field="price">Phone</th>
+            <th data-field="price">Coupons</th>
+            <th data-field="price">Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @employees.each_with_index do |employee, index| %>
+        <tr>
+          <td><a href="<%= company_branch_employee_path(current_company.id, @branch.id, employee.id) %>"><%= "#{employee.name}" %></a></td>
+          <td><%= "#{employee.email}" %></td>
+          <td><%= "#{employee.phone}" %></td>
+          <td><a class="modal-trigger" data-target="modal1" href="#modal1" >Validated coupons</a></td>
+          <td><a data-method="DELETE" href="<%= company_branch_employee_path(current_company.id, @branch.id, employee.id) %>">Delete</a></td>
+        </tr>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h4>Coupons Validated by <%= employee.name %></h4>
+        <div class="list-group">
+          <% employee.coupons.each_with_index do |coupon, index| %>
+          <li class="list-group-item">
+            <b><%= "#{coupon.reward.name}" %>:</b> COST: <%= "#{coupon.kms_cost}" %> kms - CODE: <%= "#{coupon.code}" %>
+          </li>
+          <% end %>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+      </div>
+    </div>
+
+        <% end %>
+      </tbody>
+    </table>
+  <br>
+  <a href="<%= new_company_branch_employee_path(current_company.id, @branch.id) %>" class="row btn" >Add Employee</a>
+  <br>
+
+  <a href="<%= company_branch_path(current_company.id, @branch.id) %>">Back to Branch</a>
+
+</div>

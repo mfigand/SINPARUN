@@ -1,0 +1,15 @@
+<h2 class="title is-2"><%= current_company.name%>`s branches</h2>
+<br>
+
+
+<ul>
+  <% @branches.each_with_index do |branch, index| %>
+    <li> <strong>Name:</strong> <%= "#{branch.name}" %></li>
+    <li> <strong>Address:</strong> <%= "#{branch.address}" %></li>
+    <li><a href="<%= company_branch_path(current_company,branch) %>">Show</a> - <a data-method="DELETE" href="<%= company_branch_path(current_company,branch) %>">Delete</a></li>
+    <br>
+  <% end %>
+</ul>
+<br>
+
+<a href="<%= company_path(current_company.id) %>">Back to Company</a>

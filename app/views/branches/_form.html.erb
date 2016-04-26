@@ -1,0 +1,47 @@
+
+<% if @branch.errors.any? %>
+  <ul class="notification">
+    <% @branch.errors.full_messages.each do |error| %>
+     <li class="notification-li"><%= error %> </li>
+    <% end %>
+  </ul>
+<% end%>
+
+
+<%= form_for [current_company,@branch] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, size: 10, required:'' %>
+  <br>
+  <%= f.label :address %>
+  <%= f.text_field :address, size: 10, required:'' %>
+  <br>
+  <%= f.label :latitude %>
+  <%= f.text_field :latitude, size: 10, required:'' %>
+  <br>
+  <%= f.label :longitude %>
+  <%= f.text_field :longitude, size: 10, required:'' %>
+  <br>
+  <%= f.label :phone %>
+  <%= f.text_field :phone, size: 10, required:'' %>
+  <br>
+  <%= f.label :schedule %>
+  <%= f.text_field :schedule, size: 10, required:'' %>
+  <br>
+  <%= f.label :city %>
+  <%= f.text_field :city, step: 0.5, size: 4, required:'' %>
+  <br>
+  <%= f.label :state %>
+  <%= f.text_field :state, size: 15, required:'' %>
+  <br>
+  <%= f.label :country %>
+  <%= f.text_field :country, size: 15, required:'' %>
+  <br>
+  <%= f.label :url %>
+  <%= f.text_field :url, size: 15, required:'' %>
+  <br>
+
+  <%= f.submit 'Save' %>
+
+<% end %>
+<br>
+<%= link_to("Back to Company", company_path(current_company.id)) %>
