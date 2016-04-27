@@ -25,8 +25,8 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   def self.new_runner_nike(current_user,params)
-    current_user_kms = Km.create(sinparun_kms:0,
-     total_kms:0,
+    current_user_kms = Km.create(sinparun_kms:100,
+     total_kms:100,
      nike_last_total_kms:params[:totalDistance].to_i,
      level: 1, races: 1, user_id:current_user.id)
   end
@@ -58,8 +58,8 @@ class User < ActiveRecord::Base
   end
 
   def self.new_runner_runtastic(current_user,params)
-    current_user_kms = Km.create(sinparun_kms:0,
-     total_kms:0,
+    current_user_kms = Km.create(sinparun_kms:100,
+     total_kms:100,
      runtastic_last_total_kms:params[:totalDistance].to_i,
      level: 1, races: 1, user_id:current_user.id)
   end
