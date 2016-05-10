@@ -4,6 +4,7 @@ gem 'pry'
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem "paperclip", "~> 4.3"
+gem 'aws-sdk', '~> 2.3'
 gem 'filterrific'
 gem 'kaminari'
 gem "bulma-rails", "~> 0.0.14"
