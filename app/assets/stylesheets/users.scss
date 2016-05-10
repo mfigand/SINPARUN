@@ -17,6 +17,7 @@
   background-image: url('/images/pista_azul.jpg');
   background-size: cover;
   border-radius: 25px;
+  height: auto;
 }
 
 .background_user{
@@ -51,10 +52,11 @@
 
 .section1{
   min-height: 500px;
-  min-width: 100px;
+  min-width: 300px !important;
   border-radius: 25px;
   background-color: #F8F8F8;
   float: left;
+  margin-top: 30px;
 }
 
 .section2{
@@ -62,6 +64,7 @@
   min-height: 200px !important;
   background-color: #F8F8F8 !important;
   border-radius: 25px;
+  margin-top: 30px;
 }
 
 .section3{
@@ -74,6 +77,7 @@
   height: 100% !important;
   width: auto !important;
   font-size: 20px !important;
+  margin: 5px;
 }
 .coupon_list li{
   text-align: center !important;
