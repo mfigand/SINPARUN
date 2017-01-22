@@ -94,7 +94,6 @@ var map;
   }
 
   function createRewardsMarker(position,company) {
-    debugger
     for (i = position.lat.length-1; i >= 0; i--){
       var branch_name = $('.js-rewards-name')[0].innerText;
 
