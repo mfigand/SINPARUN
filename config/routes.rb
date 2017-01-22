@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :companies
   devise_for :users
 
-  root to: "site#users_home"
+  root to: "site#home"
 
   get '/users', to: 'site#users_home'
   get '/companies', to: 'site#companies_home'
